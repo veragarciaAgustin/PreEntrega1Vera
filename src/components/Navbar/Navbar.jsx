@@ -19,7 +19,7 @@ import {
 
   import CartWidget from '../CartWidget/CartWidget'
 
-const Navbar = () => {
+const Navbar = (categoria1, categoria2, categoria3 ) => {
     const { colorMode, toggleColorMode } = useColorMode()
     return (
       <>

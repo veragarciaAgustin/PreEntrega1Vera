@@ -31,14 +31,14 @@ const ItemListContainer = ({ greeting, categoria1, categoria2, categoria3 }) => 
           </Heading>
         </Stack>
         </Container>
-
+        
         <Container>
         <Stack as={Box}
         textAlign={'center'}
         py={{ base: 20, md: 36 }}
         spacing={6}
         fontWeight={600}
-        fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+        fontSize={{ base: '1xl', sm: '2xl', md: '3xl' }}
         lineHeight={'110%'}
         >
           <Link to={categoria1}>
