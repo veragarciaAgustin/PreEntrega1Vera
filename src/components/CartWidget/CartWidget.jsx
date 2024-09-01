@@ -7,13 +7,13 @@ import {
 } from '@chakra-ui/react'
 
 
-const CartWidget = () => {
+const CartWidget = ({num}) => {
     return (
 
         <HStack>
         <Button>
             <Badge mr={2} fontSize="md" colorScheme="green">
-            5</Badge>
+            {num}</Badge>
             <Image src='shopping-cart-line.svg' width={30}/>
         </Button>
         </HStack>

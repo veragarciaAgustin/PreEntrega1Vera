@@ -1,59 +1,49 @@
 import {
-  Box,
-  Heading,
-  Container,
-  Text,
-  Stack,
-  Link,
   Flex,
+  Box,
+  Image,
+  Button,
+  ButtonGroup,
+  CardFooter,
+  Divider,
+  Stack,
+  Heading,
+  Text,
+  Card,
+  CardBody,
 } from "@chakra-ui/react";
 
-
-const ItemListContainer = ({ greeting, categoria1, categoria2, categoria3 }) => {
+const ItemListContainer = ({ products }) => {
   return (
-    <>
-      <Flex direction="column" align="center" justifyContent="center">
-        <Container maxW={"3xl"}>
-        <Stack
-          as={Box}
-          textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
-            ShopShop <br />
-            <Text as={'span'} color={'green.400'}>
-            {/* Greeting desde App */}
-              {greeting}
-            </Text>
-          </Heading>
-        </Stack>
-        </Container>
-        
-        <Container>
-        <Stack as={Box}
-        textAlign={'center'}
-        py={{ base: 20, md: 36 }}
-        spacing={6}
-        fontWeight={600}
-        fontSize={{ base: '1xl', sm: '2xl', md: '3xl' }}
-        lineHeight={'110%'}
-        >
-          <Link to={categoria1}>
-            {categoria1}
-          </Link>
-          <Link to={categoria2}>
-            {categoria2}
-          </Link>
-          <Link to={categoria3}>
-            {categoria3}
-          </Link>
-        </Stack>
-      </Container>
-      </Flex>
-    </>
-  );
+    <Box display={"flex"} flexWrap={"wrap"} justifyContent={"center"}>
+      {products.map((product) => (
+        <Card key={product.id} maxW='sm' margin={"1rem"}>
+          <CardBody>
+            <Image src={product.thumbnail} alt={product.title} borderRadius='lg' />
+            <Stack mt='6' spacing='3'>
+              <Heading size='md'>{product.title}</Heading>
+              <Text>{product.description}</Text>
+              <Text color='blue.600' fontSize='2xl'>
+                ${product.price}
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='blue'>
+                Buy now
+              </Button>
+              <Button variant='ghost' colorScheme='blue'>
+                Add to cart
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+      ))}
+    </Box>
+  )
+
 };
+
 export default ItemListContainer;

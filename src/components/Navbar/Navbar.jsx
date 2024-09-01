@@ -19,7 +19,7 @@ import {
 
   import CartWidget from '../CartWidget/CartWidget'
 
-const Navbar = (categoria1, categoria2, categoria3 ) => {
+const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
     return (
       <>
@@ -28,9 +28,6 @@ const Navbar = (categoria1, categoria2, categoria3 ) => {
           <Box>ShopShop</Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
-              
-              <CartWidget/>
-
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
