@@ -4,52 +4,40 @@ import {
   Container,
   Text,
   Stack,
-  Link,
   Flex,
 } from "@chakra-ui/react";
 
-const Category = ({ title, greeting, categoria1, categoria2, categoria3 }) => {
+import { Link } from "react-router-dom";
+
+
+
+export const Category = ({ categoria1, categoria2, categoria3, categoria4 }) => {
+  const capitalizeFirstLetter = (str) => {
+    if (typeof str !== 'string' || str.length === 0) {
+        return str;
+    }
+    
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
   return (
     <>
       <Flex direction="column" align="center" justifyContent="center">
-        <Container maxW={"3xl"}>
           <Stack
-            as={Box}
-            textAlign={"center"}
-            spacing={{ base: 8, md: 14 }}
-            py={{ base: 20, md: 36 }}
+            direction={{ base: "column", sm: "row" }}
+            as={Text}
+            textAlign={"left"}
+            spacing={20}
+            margin={'5vh'}
+            fontSize={{ base: "3vh", sm: "3vh", md: "3vh" }}
+            lineHeight={"100%"}
           >
-            <Heading
-              fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-              lineHeight={"100%"}
-            >
-              {title} <br />
-              <Text as={"span"} color={"green.400"}>
-                {/* Greeting desde App */}
-                {greeting}
-              </Text>
-            </Heading>
+            <Link to={`/category/${categoria1}`}>{capitalizeFirstLetter(categoria1)}</Link>
+            <Link to={`/category/${categoria2}`}>{capitalizeFirstLetter(categoria2)}</Link>
+            <Link to={`/category/${categoria3}`}>{capitalizeFirstLetter(categoria3)}</Link>
+            <Link to={`/category/${categoria4}`}>{capitalizeFirstLetter(categoria4)}</Link>
           </Stack>
-        </Container>
-
-        <Container>
-          <Stack
-            as={Box}
-            textAlign={"center"}
-            py={{ base: 20, md: 36 }}
-            spacing={6}
-            fontWeight={600}
-            fontSize={{ base: "1xl", sm: "2xl", md: "3xl" }}
-            lineHeight={"110%"}
-          >
-            <Link to={categoria1}>{categoria1}</Link>
-            <Link to={categoria2}>{categoria2}</Link>
-            <Link to={categoria3}>{categoria3}</Link>
-          </Stack>
-        </Container>
       </Flex>
     </>
   );
 };
-export default Category;

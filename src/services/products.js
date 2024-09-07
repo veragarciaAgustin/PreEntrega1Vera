@@ -14,4 +14,14 @@ export async function getAllProducts(){
     .then(console.log); */
 }
 
+export async function getProductById(id){
 
+    //Ejemplo con AXIOS
+    return await axios.get(`https://dummyjson.com/product/${id}`)
+}
+
+export async function getProductByCategory(category){
+
+    //Ejemplo con AXIOS
+    return await axios.get(`https://dummyjson.com/products/category/${category}`)
+}
